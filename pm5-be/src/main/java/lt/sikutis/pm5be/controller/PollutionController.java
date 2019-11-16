@@ -10,10 +10,16 @@ import org.springframework.web.client.RestTemplate;
 @RestController
 public class PollutionController {
 
+    private final RestTemplate restTemplate;
+
+    public PollutionController(RestTemplate restTemplate) {
+        this.restTemplate = restTemplate;
+    }
+
     @GetMapping("/pollution")
     public ResponseEntity<Object> getData() {
 
-        RestTemplate restTemplate = new RestTemplate();
+        //this.restTemplate
         String url = "https://airbox.edimaxcloud.com/devices_all?token=bbd61c7d-f2d7-4899-bd08-00a75e01abff&id=74DA38E69CBC&fbclid=IwAR1q3ejN3-dEzjFCsbnV9B8k2it2QPTdITYNiIOtysZ-nwI8Ccw54gqtnhc";
 
         String response = "test";
