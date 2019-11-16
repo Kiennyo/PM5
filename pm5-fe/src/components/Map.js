@@ -1,16 +1,24 @@
 import React from 'react'
+import { render } from 'react-dom'
+import { Map, Marker, Popup, TileLayer } from 'react-leaflet'
+import axios from "axios"
+import L from "react-leaflet"
 
 export default class Map extends React.Component {
-    render() {
-        return (
-            <h1>map</h1>
-        )
-    }
 
-    componentDidMount() {
-        fetch('/pollution')
-        .then(response => response.json())
-        .then(data => console.log(data))
-        .catch(err => console.log(err));
-    }
+  state() {
+    
+  }
+
+componentDidMount = () => {
+  axios.get('/pollution')
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(err => console.log(err));
+}
+
+render() {
+
+
+}
 }
