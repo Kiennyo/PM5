@@ -1,13 +1,13 @@
 package lt.sikutis.pm5be.model;
 
-public class PollutionData {
+public class SensorPollutionData {
     private String json;
 
-    public PollutionData() {
+    public SensorPollutionData() {
 
     }
 
-    public PollutionData(String json) {
+    public SensorPollutionData(String json) {
         this.json = json;
     }
 
