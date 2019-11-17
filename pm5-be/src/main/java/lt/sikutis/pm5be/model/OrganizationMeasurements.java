@@ -15,18 +15,6 @@ public class OrganizationMeasurements {
     private float renewabletco2e;
     private Date utctime;
 
-    @Override
-    public String toString() {
-        return "OrganizationMeasurements{" +
-                "org=" + org +
-                ", scope1tco2e=" + scope1tco2e +
-                ", scope2tco2e=" + scope2tco2e +
-                ", scope3tco2e=" + scope3tco2e +
-                ", renewabletco2e=" + renewabletco2e +
-                ", utctime=" + utctime +
-                '}';
-    }
-
     public OrganizationMeasurements() {
 
     }

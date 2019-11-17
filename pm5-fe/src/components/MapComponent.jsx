@@ -11,13 +11,11 @@ export default class MapComponent extends React.Component {
     };
 
     componentDidMount() {
-        const url = '/organizations';
+        const url = 'http://localhost/organizations';
 
         axios
             .get(url)
             .then(response => {
-                console.log(response);
-                console.log(response.data);
                 this.setState({ organizations: response.data });
             })
             .catch(error => {
@@ -42,22 +40,10 @@ export default class MapComponent extends React.Component {
                             lon={organization.lon}
                             name={organization.org_name}
                             address={organization.org_address}
-                            polutV1={
-                                organization.organizationMeasurements
-                                    .scope1tco2e
-                            }
-                            polutV2={
-                                organization.organizationMeasurements
-                                    .scope2tco2e
-                            }
-                            polutV3={
-                                organization.organizationMeasurements
-                                    .scope3tco2e
-                            }
-                            polutV4={
-                                organization.organizationMeasurements
-                                    .renewabletco2e
-                            }
+                            polutV1={organization.organizationMeasurements.scope1tco2e}
+                            polutV2={organization.organizationMeasurements.scope2tco2e}
+                            polutV3={organization.organizationMeasurements.scope3tco2e}
+                            polutV4={organization.organizationMeasurements.renewabletco2e}
                         />
                     ))}
                 </Map>

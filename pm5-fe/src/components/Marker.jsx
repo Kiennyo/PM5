@@ -10,29 +10,26 @@ class Marker extends Component {
         polutV4: this.props.polutV4
     };
 
-    render() {
-        const size = Math.round(
-            100 -
-                (this.state.polutV4 /
-                    (this.state.polutV1 +
-                        this.state.polutV2 +
-                        this.state.polutV3)) *
-                    100
-        );
+    calculatePercentage() {
+        const percentage = Math.round(100 - (this.state.polutV4 / (this.state.polutV1 + this.state.polutV2 + this.state.polutV3)) * 100);
+        return percentage;
+    }
 
+    calculateRadius() {
+        const radius = this.calculatePercentage() / 5 + 2;
+        return radius;
+    }
+
+    render() {
         return (
-            <CircleMarker
-                center={this.state.position}
-                radius={size / 5 + 2}
-                color="grey"
-            >
+            <CircleMarker center={this.state.position} radius={this.calculateRadius()} color="grey">
                 <Tooltip direction="right" offset={[-8, -2]} opacity={1}>
                     <span>{this.props.name}</span>
                     <hr />
                     <span>{this.props.address}</span>
                     <br />
                     <hr />
-                    <span>{size}% non green energy.</span>
+                    <span>{this.calculatePercentage()}% non green energy.</span>
                 </Tooltip>
             </CircleMarker>
         );

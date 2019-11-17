@@ -13,14 +13,6 @@ public class Organizations {
     private String org_name;
     private String org_address;
 
-    @OneToOne
-    @JoinColumn(name = "org", referencedColumnName = "org")
-    private OrganizationMeasurements organizationMeasurements;
-
-    public OrganizationMeasurements getOrganizationMeasurements() {
-        return organizationMeasurements;
-    }
-
     public Organizations() {
 
     }
@@ -51,5 +43,13 @@ public class Organizations {
 
     public String getOrg_address() {
         return org_address;
+    }
+
+    @OneToOne
+    @JoinColumn(name = "org", referencedColumnName = "org")
+    private OrganizationMeasurements organizationMeasurements;
+
+    public OrganizationMeasurements getOrganizationMeasurements() {
+        return organizationMeasurements;
     }
 }
