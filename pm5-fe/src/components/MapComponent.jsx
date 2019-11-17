@@ -11,11 +11,13 @@ export default class MapComponent extends React.Component {
     };
 
     componentDidMount() {
-        const url = 'http://localhost:80/organizations';
+        const url = '/organizations';
 
         axios
             .get(url)
             .then(response => {
+                console.log(response);
+                console.log(response.data);
                 this.setState({ organizations: response.data });
             })
             .catch(error => {
