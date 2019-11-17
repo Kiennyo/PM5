@@ -1,8 +1,6 @@
 package lt.sikutis.pm5be.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "organizations", schema = "dbo")
@@ -14,6 +12,14 @@ public class Organizations {
     private float lon;
     private String org_name;
     private String org_address;
+
+    @OneToOne
+    @JoinColumn(name = "org", referencedColumnName = "org")
+    private OrganizationMeasurements organizationMeasurements;
+
+    public OrganizationMeasurements getOrganizationMeasurements() {
+        return organizationMeasurements;
+    }
 
     public Organizations() {
 
@@ -31,39 +37,19 @@ public class Organizations {
         return org;
     }
 
-    public void setOrg(long org) {
-        this.org = org;
-    }
-
     public float getLat() {
         return lat;
-    }
-
-    public void setLat(float lat) {
-        this.lat = lat;
     }
 
     public float getLon() {
         return lon;
     }
 
-    public void setLon(float lon) {
-        this.lon = lon;
-    }
-
     public String getOrg_name() {
         return org_name;
     }
 
-    public void setOrg_name(String org_name) {
-        this.org_name = org_name;
-    }
-
     public String getOrg_address() {
         return org_address;
-    }
-
-    public void setOrg_address(String org_address) {
-        this.org_address = org_address;
     }
 }

@@ -8,6 +8,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 public class OrganisationsController {
 
@@ -19,7 +21,10 @@ public class OrganisationsController {
     }
 
     @GetMapping("/organizations")
-    public ResponseEntity<Iterable<Organizations>> getOrganizations() {
+    public ResponseEntity<List<Organizations>> getOrganizations() {
+
+        List<Organizations> gay = repository.findAll();
+
         try {
             return new ResponseEntity<>(repository.findAll(), HttpStatus.OK);
         } catch (Exception e) {
