@@ -42,11 +42,22 @@ export default class MapComponent extends React.Component {
                             lon={organization.lon}
                             name={organization.org_name}
                             address={organization.org_address}
-                            polutV1={21}
-                            polutV2={21}
-                            polutV3={21}
-                            polutV4={5}
-
+                            polutV1={
+                                organization.organizationMeasurements
+                                    .scope1tco2e
+                            }
+                            polutV2={
+                                organization.organizationMeasurements
+                                    .scope2tco2e
+                            }
+                            polutV3={
+                                organization.organizationMeasurements
+                                    .scope3tco2e
+                            }
+                            polutV4={
+                                organization.organizationMeasurements
+                                    .renewabletco2e
+                            }
                         />
                     ))}
                 </Map>
